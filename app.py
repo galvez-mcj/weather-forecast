@@ -50,25 +50,21 @@ def get_location():
     """
     weather_text.config(text=display_text)
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    root.iconbitmap('fire.ico')
-    root.title('Ang Ineeeeet!!!')
-    root.geometry('300x200')
 
-    style = ttk.Style()
-    style.configure("BW.TLabel", foreground="black", background="white")
+root = tk.Tk()
+root.iconbitmap('fire.ico')
+root.title('Ang Ineeeeet!!!')
+root.geometry('300x200')
 
-    l1 = ttk.Label(text="Test", style="BW.TLabel")
 
-    input_label = tk.Label(root, text="\nTaga-saan ka?\n")
-    input_label.pack()
+input_label = tk.Label(root, text="\nTaga-saan ka?\n")
+input_label.pack()
 
-    location_btn = tk.Button(root, text="Kunin ang lokasyon", command=get_location)
-    location_btn.pack()
+location_btn = tk.Button(root, text="Kunin ang lokasyon", command=get_location)
+location_btn.pack()
 
-    # Result
-    weather_text = tk.Label(root, text="")
-    weather_text.pack()
+# Result
+weather_text = tk.Label(root, text="")
+weather_text.pack()
 
-    root.mainloop()
+root.mainloop()
