@@ -1,6 +1,5 @@
 import requests
 import tkinter as tk
-import tkinter.ttk as ttk
 from decouple import config
 
 IPBASE_KEY = config('IPBASE_KEY')
@@ -44,27 +43,25 @@ def get_location():
     """
     display_text = f"""
     Grabe na talaga sa {city_name}!
-    -------------------------------------
+    --------------------------------------------
     Totoong temperatura: {temperature}°C
     Pero it feels like: {feels_like}°C
     """
     weather_text.config(text=display_text)
 
-
 root = tk.Tk()
-root.iconbitmap('fire.ico')
 root.title('Ang Ineeeeet!!!')
-root.geometry('300x200')
+canvas1 = tk.Canvas(root, width = 300, height = 200)
+canvas1.pack()
 
+input_label = tk.Label(root, text="Taga-saan ka?", fg='brown', font=('helvetica', 12, 'bold'))
+canvas1.create_window(150, 30, window=input_label)
 
-input_label = tk.Label(root, text="\nTaga-saan ka?\n")
-input_label.pack()
-
-location_btn = tk.Button(root, text="Kunin ang lokasyon", command=get_location)
-location_btn.pack()
+location_btn = tk.Button(root, text="Kunin ang lokasyon", command=get_location, bg='brown', fg='white')
+canvas1.create_window(150, 60, window=location_btn)
 
 # Result
-weather_text = tk.Label(root, text="")
-weather_text.pack()
+weather_text = tk.Label(root, text="", font=('helvetica', 12))
+canvas1.create_window(150, 130, window=weather_text)
 
 root.mainloop()
